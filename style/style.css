@@ -1,0 +1,69 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.poppins {
+    font-family: "Poppins", sans-serif;
+}
+
+.tiro-bangla {
+    font-family: "Tiro Bangla", serif;
+    ;
+}
+
+.hind-siliguri {
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+.inter {
+    font-family: "Inter", sans-serif;
+}
+
+.primary-color {
+    color: #18181B;
+}
+
+.secondary-color {
+    color: #00BCFF;
+}
+
+.btn-property {
+    padding: 12px 18px;
+    color: #422AD5;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgb(66, 42, 213);
+    border-radius: 4px;
+}
+
+.btn-property:hover {
+    cursor: pointer;
+    background-color: #422AD5;
+    color: white;
+}
+
+.active {
+    cursor: pointer;
+    background-color: #422AD5;
+    color: white;
+}
+
+.container {
+    width: 92%;
+    max-width: 1760px;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+    #lesson-button-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+@media screen and (max-width: 700px) {
+    #lesson-button-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English জানালা</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <!-- daisyUI  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/cf94209d77.js" crossorigin="anonymous"></script>
+
+    <!-- sweet alert  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+    <!-- css  -->
+    <link rel="stylesheet" href="style/style.css">
+
+</head>
+
+
+<body class="poppins">
+    <header id="nav-container" class="sticky top-0 z-20">
+        <nav class="py-4 border-b-[1px] border-[#C6BDBD] backdrop-blur-[40px] bg-gradient-to-t from-[#FFFFFF00] to-[#00000030]">
+            <div class="flex flex-col md:flex-row items-center justify-between mx-20 py-3">
+                <!-- logo container  -->
+                <div class="flex items-center gap-1">
+                    <h1 class="font-semibold text-xl primary-color">English</h1>
+                    <img src="assets/logo.png" alt="">
+                    <h1 class="tiro-bangla text-xl">জানালা</h1>
+                </div>
+
+                <!-- button container  -->
+                <div class="space-x-4 flex">
+                    <a href="#faq-section"><button class="btn-property btn"><i
+                                class="mr-1 fa-solid fa-circle-question"></i> FAQ </button></a>
+                    <a href="#lesson-section"><button class="btn-property btn"><i
+                                class="mr-1 fa-solid fa-book-open"></i> Learn </button></a>
+                    <button onclick="logOut()" class="btn-property btn"><i class="mr-1 fa-solid fa-right-from-bracket"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-14">
+        <!-- login section  -->
+        <section id="login-section" class="flex flex-col-reverse md:flex-row items-center justify-between">
+            <!-- login container  -->
+            <div class="space-y-6">
+                <h1 class="font-bold text-5xl"><span class="secondary-color">English</span> is Easy!!</h1>
+                <p class="hind-siliguri font-medium text-2xl primary-color max-w-[730px]">
+                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
+
+                <!-- login form  -->
+                <form class="flex flex-col gap-5" action="">
+                    <input id="user-name" class="border-[1px] rounded border-[#18181B33] px-3 py-2 w-[320px]" type="text" name=""
+                        placeholder="Enter your Name">
+                    <input id="user-pass" class="border-[1px] rounded border-[#18181B33] px-3 py-2 w-[320px]" type="password" name=""
+                        placeholder="..................">
+                    <label for="">
+                        <input id="logIn-btn"
+                            class="btn bg-[#422AD5] border-[1px] border-[#422AD5] rounded text-white font-semibold hover:bg-white hover:text-black"
+                            type="submit" value="Get Started">
+                    </label>
+                </form>
+            </div>
+
+            <!-- hero img  -->
+            <div>
+                <img src="assets/hero-student.png" alt="">
+            </div>
+        </section>
+
+
+
+
+        <!-- lesson section  -->
+        <section id="lesson-section" class="text-center pt-48">
+            <!-- title  -->
+            <h1 class="text-4xl font-bold primary-color"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies
+            </h1>
+
+            <!-- lesson button container -->
+            <div id="lesson-button-container" class="xl:space-x-5 mt-9 mb-10">
+                <!-- button template  -->
+                <!-- <button class="btn-property btn"><i class="mr-1 fa-solid fa-book-open"></i> Lesson - 1</button> -->
+            </div>
+
+            <!-- spinner  -->
+            <div id="loader" class="relative hidden">
+                <div class="absolute left-1/2 -translate-x-1/2 top-20 z-10">
+                    <span class="loading loading-dots loading-xl"></span>
+                </div>
+            </div>
+
+            <!-- no selected lesson container  -->
+            <div id="select-lesson" class="py-16 space-y-3 bg-[#F8F8F8] rounded-3xl">
+                <p class="hind-siliguri text-sm text-[#79716B]">আপনি এখনো কোন Lesson Select করেন নি</p>
+                <h1 class="hind-siliguri text-4xl font-medium text-[#292524]">একটি Lesson Select করুন।</h1>
+            </div>
+
+            <!-- empty lesson container  -->
+            <div id="go-next-lesson" class="py-16 space-y-4 bg-[#F8F8F8] rounded-3xl hidden">
+                <div class="flex justify-center">
+                    <img src="assets/alert-error.png" alt="">
+                </div>
+                <p class="hind-siliguri text-sm text-[#79716B]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <h1 class="hind-siliguri text-4xl font-medium text-[#292524]">নেক্সট Lesson এ যান</h1>
+            </div>
+
+
+            <!-- lesson container -->
+            <div id="lesson-container-parent" class="hidden">
+                <div id="lesson-container" class="p-8 grid md:grid-cols-2 lg:grid-cols-3 bg-[#F8F8F8] rounded-3xl gap-8">
+                    <!-- lesson card  -->
+                    <div class="bg-white p-14 rounded-xl space-y-14">
+                        <!-- words container  -->
+                        <div class="space-y-6">
+                            <h1 class="inter text-3xl font-bold">Eager</h1>
+                            <p class="inter text-xl font-medium">Meaning /Pronounciation</p>
+                            <h1 class="hind-siliguri primary-color text-3xl font-semibold">"আগ্রহী / ইগার"</h1>
+                        </div>
+
+                        <!-- button container  -->
+                        <div class="flex justify-between">
+                            <button class="btn rounded-lg bg-[#1A91FF1A] p-4 py-6 text-[#374957] text-2xl"><i
+                                    class="fa-solid fa-circle-info"></i></button>
+                            <button class="btn rounded-lg bg-[#1A91FF1A] p-4 py-6 text-[#374957] text-2xl"><i
+                                    class="fa-solid fa-volume-high"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal  -->
+            <div>
+                <!-- You can open the modal using ID.showModal() method -->
+                <!-- <button class="btn" onclick="my_modal_4.showModal()">open modal</button> -->
+                <dialog id="my_modal_4" class="modal">
+                    <div id="modal-body" class="modal-box w-[750px] max-w-5xl bg-white p-6 text-left rounded-3xl ">
+                        <!-- word info container  -->
+                        <div class="border-2 border-[#edf7ff] rounded-xl space-y-8 p-6">
+                            <!-- word  -->
+                            <div>
+                                <h1 class="text-4xl font-semibold">Eager (<img src="assets/fi-ss-microphone.svg" alt=""
+                                        class="inline"> : <span>ইগার</span> )</h1>
+                            </div>
+
+                            <!-- meaning  -->
+                            <div class="space-y-3">
+                                <h2 class="font-semibold text-2xl">Meaning</h2>
+                                <h3 class="hind-siliguri font-medium text-2xl">আগ্রহী</h3>
+                            </div>
+
+                            <!-- example  -->
+                            <div class="space-y-3">
+                                <h2 class="font-semibold text-2xl">Example</h2>
+                                <h3 class="font-normal text-2xl">The kids were eager to open their gifts.</h3>
+                            </div>
+
+                            <!-- synonyms  -->
+                            <div class="space-y-3">
+                                <h2 class="hind-siliguri font-medium text-2xl">সমার্থক শব্দ গুলো</h2>
+                                <!-- synonyms container  -->
+                                <div class="space-x-5">
+                                    <button
+                                        class="btn py-2 px-5 bg-[#EDF7FF] border-[1px] border-[#d7e4ef] text-xl ">Enthusiastic</button>
+                                    <button
+                                        class="btn py-2 px-5 bg-[#EDF7FF] border-[1px] border-[#d7e4ef] text-xl ">Excited</button>
+                                    <button
+                                        class="btn py-2 px-5 bg-[#EDF7FF] border-[1px] border-[#d7e4ef] text-xl ">Keen</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- modal button  -->
+                        <div class="modal-action flex justify-start">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <div class="">
+                                    <button
+                                        class="btn text-white hind-siliguri font-medium text-2xl  !py-2 !px-5 w-max h-max rounded-xl bg-[#422AD5]">Complete
+                                        Learning</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+        </section>
+
+
+        <!-- FAQ section  -->
+        <section id="faq-section" class="pt-56">
+            <!-- title  -->
+            <h1 class="text-center mb-14 text-4xl font-bold primary-color"><span
+                    class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
+
+            <!-- container  -->
+            <div class="space-y-5 mb-20">
+                <!-- q a A  -->
+                <div class="collapse collapse-plus bg-[#F8F8F8] rounded-2xl">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title text-base font-medium primary-color">1. The difference between var, let, and const?</div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        var: a variable that can be re declared outside its scope. <br>
+                        <br>
+                        let: a variable, which value can be changed inside its scope, can not be accessed outside its
+                        scope or block. <br><br>
+                        const: a variable, which value cannot be changed, and neither can be accessed outside its scope
+                        or block.
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] rounded-2xl">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title text-base font-medium primary-color">2. The difference between map(), forEach(), and filter() ?</div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        map(): performs operation in each element of an array and returns the new array. <br>
+                        <br>
+                        forEach(): performs operation in each element of an array but does not returns anything. <br> <br>
+                        filter(): returns a new array of elements that passes a specific condition applied on an array.
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] rounded-2xl">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title text-base font-medium primary-color">3. Explain arrow functions and how they are different from regular functions.</div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        Arrow function is defined using () => { } instead of function. <br>
+                        <br>
+                        Arrow functions does not have an arguments object. It uses rest parameters instead. <br>
+                        <br>
+                        Arrow functions is ideal callbacks, array operations, etc. <br>
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] rounded-2xl">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title text-base font-medium primary-color">4. How JavaScript Promises work?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        JavaScript promises represents the state and result of the fetched data. <br>
+                        <br>
+                        It contains the state if the data is pending, available or rejected. 
+                    </div>
+                </div>
+                <div class="collapse collapse-plus bg-[#F8F8F8] rounded-2xl">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title text-base font-medium primary-color">5. How closures work in JavaScript?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        Closures is a way to access the properties and execute a specific operation through the inner function, when the outer function is called or finished execution at least once. <br>
+                        <br>
+                        This inner function can be accessed from the outer scope of the outer function.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-52 border-t-[3px] border-[#ffebeb]">
+        <div class="container mx-auto my-[100px] flex flex-col md:flex-row justify-between">
+
+            <!-- info container  -->
+            <div>
+                <!-- logo container  -->
+                <div class="flex items-center gap-1">
+                    <h1 class="font-semibold text-xl primary-color">English</h1>
+                    <img src="assets/logo.png" alt="">
+                    <h1 class="tiro-bangla text-xl">জানালা</h1>
+                </div>
+                <h1 class="mt-5 mb-2 hind-siliguri text-xl font-medium">ইংরেজি শিখুন সহজে</h1>
+                <p class="hind-siliguri text-base">Providing ED-Tech Applications since 2025</p>
+            </div>
+
+
+            <!-- social  -->
+            <div class="flex flex-col justify-end">
+                <div class="space-y-4">
+                    <h1 class="uppercase primary-color text-sm font-semibold">follow us</h1>
+
+                    <!-- icon container  -->
+                    <div class="space-x-4 text-3xl">
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100010344607476" ><i class="fa-brands fa-facebook"></i></a>
+                        <a target="_blank" href="https://www.youtube.com"></i><i class="fa-brands fa-youtube"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a target="_blank" href="https://github.com/ArunRoy404"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/function.js"></script>
+    <script src="scripts/fetch.js"></script>
+    <script src="scripts/load.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
